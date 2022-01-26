@@ -1,0 +1,17 @@
+{
+  "name": "js-algo-ds",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "helloworld.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "lodash": "^4.17.21"
+  }
+}
