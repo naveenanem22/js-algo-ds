@@ -44,8 +44,26 @@ class BinarySearchTree {
     console.log(this.root);
   }
 
+  getTraversedNode(node, traversedElements) {
+    if (this.hasLeftNode(node)) {
+      this.getTraversedNode(node.leftNode, traversedElements);
+    }
+    traversedElements.push(node.data);
+    if (this.hasRightNode(node)) {
+      this.getTraversedNode(node.rightNode, traversedElements);
+    }
+  }
+
   inOrderTraverse() {
-    return [];
+    const traversedElements = [];
+
+    if (_.isEmpty(this.root)) {
+      return [];
+    } else {
+      this.getTraversedNode(this.root, traversedElements);
+    }
+
+    return traversedElements;
   }
 
   preOrderTraverse() {
@@ -62,7 +80,6 @@ class BinarySearchTree {
     } else {
       let currentNode = this.root;
       const elementsArrary = [];
-      elementsArrary.push(currentNode.data);
 
       if (this.hasLeftNode(currentNode)) {
         elementsArrary.push(currentNode.leftNode.data);

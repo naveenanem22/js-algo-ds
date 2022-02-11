@@ -31,8 +31,14 @@ class Queue {
         this.qEnd = -1;
         this.qStart = -1;
       } else {
-        this.qEnd--;
+        this.qStart++;
       }
+    }
+  }
+
+  traverse() {
+    for (let i = this.qStart; i <= this.qEnd; i++) {
+      console.log(this.queue[i]);
     }
   }
 }

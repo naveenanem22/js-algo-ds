@@ -7,6 +7,8 @@ describe("Queue tests", () => {
     queue.enqueue(20);
     queue.enqueue(30);
     queue.enqueue(40);
-    console.log(queue.queue);
+    queue.dequeue();
+    queue.dequeue();
+    queue.traverse();
   });
 });
