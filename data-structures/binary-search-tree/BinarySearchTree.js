@@ -67,10 +67,12 @@ class BinarySearchTree {
   }
 
   preOrderTraverseAndUpdate(node, traversedElements) {
+    traversedElements.push(node.data);
+    
     if (this.hasLeftNode(node)) {
       this.preOrderTraverseAndUpdate(node.leftNode, traversedElements);
     }
-    traversedElements.push(node.data);
+    
     if (this.hasRightNode(node)) {
       this.preOrderTraverseAndUpdate(node.rightNode, traversedElements);
     }
