@@ -66,8 +66,26 @@ class BinarySearchTree {
     return traversedElements;
   }
 
+  preOrderTraverseAndUpdate(node, traversedElements) {
+    if (this.hasLeftNode(node)) {
+      this.preOrderTraverseAndUpdate(node.leftNode, traversedElements);
+    }
+    traversedElements.push(node.data);
+    if (this.hasRightNode(node)) {
+      this.preOrderTraverseAndUpdate(node.rightNode, traversedElements);
+    }
+  }
+
   preOrderTraverse() {
-    return [];
+    const traversedElements = [];
+
+    if (_.isEmpty(this.root)) {
+      return [];
+    } else {
+      this.preOrderTraverseAndUpdate(this.root, traversedElements);
+    }
+
+    return traversedElements;
   }
 
   postOrderTraverse() {
