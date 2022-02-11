@@ -68,11 +68,11 @@ class BinarySearchTree {
 
   preOrderTraverseAndUpdate(node, traversedElements) {
     traversedElements.push(node.data);
-    
+
     if (this.hasLeftNode(node)) {
       this.preOrderTraverseAndUpdate(node.leftNode, traversedElements);
     }
-    
+
     if (this.hasRightNode(node)) {
       this.preOrderTraverseAndUpdate(node.rightNode, traversedElements);
     }
@@ -90,8 +90,27 @@ class BinarySearchTree {
     return traversedElements;
   }
 
+  postOrderTraverseAndUpdate(node, traversedElements) {
+    if (this.hasLeftNode(node)) {
+      this.postOrderTraverseAndUpdate(node.leftNode, traversedElements);
+    }
+
+    if (this.hasRightNode(node)) {
+      this.postOrderTraverseAndUpdate(node.rightNode, traversedElements);
+    }
+    traversedElements.push(node.data);
+  }
+
   postOrderTraverse() {
-    return [];
+    const traversedElements = [];
+
+    if (_.isEmpty(this.root)) {
+      return [];
+    } else {
+      this.postOrderTraverseAndUpdate(this.root, traversedElements);
+    }
+
+    return traversedElements;
   }
 
   levelOrderTraverse() {
