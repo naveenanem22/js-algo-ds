@@ -8,6 +8,8 @@ test("BinarySearchTree display test", () => {
   binarySearchTree.insertNode(5);
   binarySearchTree.insertNode(25);
   binarySearchTree.insertNode(15);
+  binarySearchTree.insertNode(3);
+  binarySearchTree.insertNode(2);
   binarySearchTree.display();
 });
 test("BinarySearchTree in-order traversal test", () => {
@@ -45,4 +47,16 @@ test("BinarySearchTree Level-order traversal test", () => {
   binarySearchTree.insertNode(25);
   binarySearchTree.insertNode(15);
   expect(binarySearchTree.levelOrderTraverse()).toEqual([10, 5, 20, 15, 25]);
+});
+test("Binary Search Tree - Full binary tree test", () => {
+  const binarySearchTree = new BinarySearchTree();
+  binarySearchTree.insertNode(10);
+  binarySearchTree.insertNode(20);
+  binarySearchTree.insertNode(5);
+  binarySearchTree.insertNode(25);
+  binarySearchTree.insertNode(15);
+  binarySearchTree.insertNode(3);
+  binarySearchTree.insertNode(6);
+  console.log(binarySearchTree.levelOrderTraverse());
+  expect(binarySearchTree.isFullBinaryTree()).toEqual(true);
 });

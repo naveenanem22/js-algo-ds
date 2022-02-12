@@ -137,6 +137,35 @@ class BinarySearchTree {
       return traversedElements.map((item) => item.data);
     }
   }
+
+  getLevelOrderTraversedNodes() {
+    const traversedElements = [];
+    if (_.isEmpty(this.root)) {
+      return [];
+    } else {
+      traversedElements.push(this.root);
+      this.levelOrderTraverseAndUpdate(traversedElements);
+
+      return traversedElements;
+    }
+  }
+
+  isFullBinaryTree() {
+    var result = false;
+    var traversedElements = this.getLevelOrderTraversedNodes();
+
+    for (var node of traversedElements) {
+      result =
+        (this.hasLeftNode(node) && this.hasRightNode(node)) ||
+        (!this.hasLeftNode(node) && !this.hasRightNode(node));
+
+      if (!result) {
+        break;
+      }
+    }
+
+    return result;
+  }
 }
 
 export default BinarySearchTree;
