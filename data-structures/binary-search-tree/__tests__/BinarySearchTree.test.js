@@ -57,6 +57,18 @@ test("Binary Search Tree - Full binary tree test", () => {
   binarySearchTree.insertNode(15);
   binarySearchTree.insertNode(3);
   binarySearchTree.insertNode(6);
-  console.log(binarySearchTree.levelOrderTraverse());
   expect(binarySearchTree.isFullBinaryTree()).toEqual(true);
+});
+test("Binary Search Tree - Complete binary tree test", () => {
+  const binarySearchTree = new BinarySearchTree();
+  binarySearchTree.insertNode(10);
+  binarySearchTree.insertNode(20);
+  binarySearchTree.insertNode(5);
+  binarySearchTree.insertNode(25);
+  binarySearchTree.insertNode(15);
+  binarySearchTree.insertNode(3);
+  binarySearchTree.insertNode(6);
+  expect(binarySearchTree.isFullBinaryTree()).toEqual(true);
+  binarySearchTree.insertNode(30);
+  expect(binarySearchTree.isFullBinaryTree()).toEqual(false);
 });

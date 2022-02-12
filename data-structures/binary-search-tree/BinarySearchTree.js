@@ -166,6 +166,24 @@ class BinarySearchTree {
 
     return result;
   }
+
+  isCompleteBinaryTree() {
+    var result = false;
+    var traversedElements = this.getLevelOrderTraversedNodes();
+
+    for (var node of traversedElements) {
+      result =
+        (this.hasLeftNode(node) && this.hasRightNode(node)) ||
+        (!this.hasLeftNode(node) && !this.hasRightNode(node)) ||
+        (this.hasLeftNode(node) && !this.hasRightNode(node));
+
+      if (!result) {
+        break;
+      }
+    }
+
+    return result;
+  }
 }
 
 export default BinarySearchTree;
