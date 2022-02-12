@@ -113,20 +113,28 @@ class BinarySearchTree {
     return traversedElements;
   }
 
+  levelOrderTraverseAndUpdate(traversedElements) {
+    let currentNodeIndex = 0;
+    while (currentNodeIndex < traversedElements.length) {
+      if (this.hasLeftNode(traversedElements[currentNodeIndex])) {
+        traversedElements.push(traversedElements[currentNodeIndex].leftNode);
+      }
+      if (this.hasRightNode(traversedElements[currentNodeIndex])) {
+        traversedElements.push(traversedElements[currentNodeIndex].rightNode);
+      }
+      currentNodeIndex++;
+    }
+  }
+
   levelOrderTraverse() {
+    const traversedElements = [];
     if (_.isEmpty(this.root)) {
       return [];
     } else {
-      let currentNode = this.root;
-      const elementsArrary = [];
+      traversedElements.push(this.root);
+      this.levelOrderTraverseAndUpdate(traversedElements);
 
-      if (this.hasLeftNode(currentNode)) {
-        elementsArrary.push(currentNode.leftNode.data);
-      } else if (this.hasRightNode(currentNode)) {
-        elementsArrary.push(currentNode.rightNode.data);
-      }
-
-      return elementsArrary;
+      return traversedElements.map((item) => item.data);
     }
   }
 }
