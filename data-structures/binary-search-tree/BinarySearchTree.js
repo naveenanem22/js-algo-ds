@@ -167,6 +167,17 @@ class BinarySearchTree {
     return result;
   }
 
+  isFullBinaryTreeRecursive(node) {
+    if (this.hasLeftNode(node) && this.hasRightNode(node)) {
+      return (
+        this.isFullBinaryTreeRecursive(node.leftNode) &&
+        this.isFullBinaryTreeRecursive(node.rightNode)
+      );
+    } else if (!this.hasLeftNode(node) && !this.hasRightNode(node)) {
+      return true;
+    } else return false;
+  }
+
   isCompleteBinaryTree() {
     var result = false;
     var traversedElements = this.getLevelOrderTraversedNodes();
@@ -181,7 +192,6 @@ class BinarySearchTree {
         break;
       }
     }
-
     return result;
   }
 }
