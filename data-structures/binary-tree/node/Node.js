@@ -14,7 +14,7 @@ class Node {
     return !_.isEmpty(this.rightChild);
   }
   isLeafNode() {
-    return !this.hasLeftChild() || !this.hasRightChild();
+    return !this.hasLeftChild() && !this.hasRightChild();
   }
 }
 

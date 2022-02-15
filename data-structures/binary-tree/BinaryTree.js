@@ -22,7 +22,7 @@ class BinaryTree {
   }
 
   isBalancedBinaryTree(currentNode) {
-    if (_.isEmpty(currentNode)) {
+    if (!_.isEmpty(currentNode)) {
       if (currentNode.isLeafNode()) {
         return true;
       } else {
