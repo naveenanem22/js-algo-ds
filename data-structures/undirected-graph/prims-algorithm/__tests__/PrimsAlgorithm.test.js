@@ -15,4 +15,5 @@ test("Prims algorithm test", () => {
   graph.addEdge(20, 40, 1);
   graph.addEdge(30, 50, 8);
   graph.addEdge(40, 60, 2);
+  getShortestPath(graph);
 });
