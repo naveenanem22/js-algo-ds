@@ -10,6 +10,10 @@ export default class Graph {
   }
   addEdge(sourceVertex, destinationVertex, weight) {
     const edge = new Edge(weight, destinationVertex);
-    this.data.set(sourceVertex, edge);
-  }  
+    if (this.data.has(sourceVertex)) {
+      this.data.get(sourceVertex).push(edge);
+    } else {
+      this.data.set(sourceVertex, [edge]);
+    }
+  }
 }
