@@ -9,22 +9,25 @@ export function getShortestPath(graph) {
     },
   });
 
-  const resultArray = [];
+  const resultSet = new Set();
   const startVertex = graph.getVertices()[0];
-  resultArray.push(startVertex);
+  resultSet.add(startVertex);
   graph.getEdgesOf(startVertex).forEach((edge) => {
     edgesPriorityQueue.enqueue(edge);
   });
 
-  while (!edgesPriorityQueue.isEmpty()) {
+  /*while (resultSet.size !== graph.getVertices.length) {
     const removedEdge = edgesPriorityQueue.dequeue();
-    resultArray.push(removedEdge.destinationVertex);
+    resultSet.add(removedEdge.destinationVertex);
     graph.getEdgesOf(removedEdge.destinationVertex).forEach((edge) => {
-      edgesPriorityQueue.enqueue(edge);
+      if (!resultSet.has(edge.destinationVertex)) {
+        edgesPriorityQueue.enqueue(edge);
+      }
+
     });
-  }
+  }*/
 
-  //console.log(edgePriorityQueue.toArray());
+  console.log(resultSet);
 
-  return [];
+  return resultSet;
 }
