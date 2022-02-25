@@ -15,7 +15,7 @@ export function getShortestPath(graph) {
     edgesPriorityQueue.enqueue(edge);
   });
 
-  while (resultSet.size !== graph.getVertices.length) {
+  while (!edgesPriorityQueue.isEmpty()) {
     const removedEdge = edgesPriorityQueue.dequeue();
     resultSet.add(removedEdge.destinationVertex);
     graph.getEdgesOf(removedEdge.destinationVertex).forEach((edge) => {
@@ -25,8 +25,5 @@ export function getShortestPath(graph) {
 
     });
   }
-
-  console.log(resultSet);
-
-  return resultSet;
+  return [...resultSet];
 }
