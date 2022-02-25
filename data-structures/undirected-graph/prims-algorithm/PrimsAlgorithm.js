@@ -1,4 +1,3 @@
-import Graph from "./Graph";
 import { PriorityQueue } from "@datastructures-js/priority-queue";
 
 export function getShortestPath(graph) {
@@ -16,7 +15,7 @@ export function getShortestPath(graph) {
     edgesPriorityQueue.enqueue(edge);
   });
 
-  /*while (resultSet.size !== graph.getVertices.length) {
+  while (resultSet.size !== graph.getVertices.length) {
     const removedEdge = edgesPriorityQueue.dequeue();
     resultSet.add(removedEdge.destinationVertex);
     graph.getEdgesOf(removedEdge.destinationVertex).forEach((edge) => {
@@ -25,7 +24,7 @@ export function getShortestPath(graph) {
       }
 
     });
-  }*/
+  }
 
   console.log(resultSet);
 
